@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora - Tipo 1</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div id="conteudo">
+        <div id="resultado">
+            <div id="res"></div>
+        </div>
+
+        <div id="teclas">
+            <table id="tabelaTeclas">
+                <tr>
+                    <!--clear(apaga todo o cálculo)-->
+                    <td class="limpar" onclick="limpar('tudo')">
+                        <div>C</div>
+                    </td>
+                    
+                    <td class="tdVazio"></td>
+                    <td class="tdVazio"></td>
+                    
+                    <!--clear element(apaga o último dígito)-->
+                    <td class="destaque" onclick="limpar('ultimo')">
+                        <div>CE</div>
+                    </td>
+                </tr>
+                <tr>
+                    <!--sete-->
+                    <td onclick="mostrar('7')">
+                        <div>7</div>
+                    </td>
+                    <!--oito-->
+                    <td onclick="mostrar('8')">
+                        <div>8</div>
+                    </td>
+                    <!--nove-->
+                    <td onclick="mostrar('9')">
+                        <div>9</div>
+                    </td>
+                    <!--divisão-->
+                    <td class="destaque" onclick="mostrar('÷')">
+                        <div>&#247;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <!--quatro-->
+                    <td onclick="mostrar('4')">
+                        <div>4</div>
+                    </td>
+                    <!--cinco-->
+                    <td onclick="mostrar('5')">
+                        <div>5</div>
+                    </td>
+                    <!--seis-->
+                    <td onclick="mostrar('6')">
+                        <div>6</div>
+                    </td>
+                    <!--multiplicação-->
+                    <td class="destaque" onclick="mostrar('×')">
+                        <div>&#215;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <!--um-->
+                    <td onclick="mostrar('1')">
+                        <div>1</div>
+                    </td>
+                    <!--dois-->
+                    <td onclick="mostrar('2')">
+                        <div>2</div>
+                    </td>
+                    <!--três-->
+                    <td onclick="mostrar('3')">
+                        <div>3</div>
+                    </td>
+                    <!--subtração-->
+                    <td class="destaque" onclick="mostrar('-')">
+                        <div>&#8722;</div>
+                    </td>
+                </tr>
+                <tr>
+                    <!--ponto-->
+                    <td>
+                        <div id="ponto" onclick="mostrar('.')">.</div>
+                    </td>
+                    <!--zero-->
+                    <td onclick="mostrar(0)">
+                        <div>0</div>
+                    </td>
+                    <!--igualdade-->
+                    <td id="igual" onclick="igual()">
+                        <div>&#61;</div>
+                    </td>
+                    <!--adição-->
+                    <td class="destaque" onclick="mostrar('+')">
+                        <div>&#43;</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
