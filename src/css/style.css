@@ -2,7 +2,7 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
 
-/* LIMPEZA DOS ESTILOS */
+/* ESTILIZAÇÃO GERAL */
 *{
     margin: 0;
     padding: 0;
@@ -57,7 +57,7 @@ div#res:hover{
     border: 1px solid rgb(60, 60, 60);
 }
 
-/* ESTILIZAÇÃO DA DIV DE TECLAS (OPERADORES, NÚMEROS, IGUALDADE E CLEAR (C e CE)) */
+/* ESTILIZAÇÃO DA DIV DE TECLAS (OPERADORES, PONTO, NÚMEROS, IGUALDADE E CLEAR (C e CE)) */
 div#teclas{
     position: relative;
 }

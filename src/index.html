@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora - Tipo 1</title>
+    <title>Calculadora</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -25,7 +25,7 @@
                     <td class="tdVazio"></td>
                     
                     <!--clear element(apaga o último dígito)-->
-                    <td class="destaque" onclick="limpar('ultimo')">
+                    <td class="destaque" onclick="limpar('ultimoDigito')">
                         <div>CE</div>
                     </td>
                 </tr>
@@ -93,7 +93,7 @@
                         <div>0</div>
                     </td>
                     <!--igualdade-->
-                    <td id="igual" onclick="igual()">
+                    <td id="igual" onclick="verResultado()">
                         <div>&#61;</div>
                     </td>
                     <!--adição-->

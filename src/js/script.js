@@ -1,61 +1,57 @@
-var ultimoDigito = '';
-var tipoUltimoDigito = ''; // Especial ou Número //
-var statusPonto = true;
+let ultimoDigito = '';
+let tipoUltimoDigito = ''; // Especial ou Número //
+let statusPonto = true;
 const especiais = ['.', '+', '-', '×', '÷'];
 
-// 1(n1) +(op) 1(n2) = 2(r) //
-var n1;
-var n2;
-var op;
-var r = 0;
+let resultado = 0;
 
-var vezesOp = 0; // Quantidade de vezes que um operador foi clicado
+let contador = 0;
+
+let vezesOp = 0; // Quantidade de vezes que um operador foi clicado
 
 function mostrar(digito) { // Mostra o dígito selecionado no painel //
-    let res = document.getElementById('res'); // Obtém o elemento 'div#res' //
+    let res = document.getElementById('res');
 
     // Verificação do dígito atual //
-    if (res.textContent.length < 12) { // 12 -> limite de dígitos no painel de cálculo //
-        var c1 = 0;
-        var tipo; // Guarda o tipo do dígito (especial ou número) //
+    if (res.textContent.length < 12) {
+        contador = 0;
+        var tipo;
         for (let i = 0; i < especiais.length; i++) {
             if (digito === especiais[i]) {
-                c1 = 1;
+                contador = 1;
             }
         }
-        if (c1 === 0) {
+        if (contador === 0) {
             tipo = 'numero';
         } else {
             tipo = 'especial';
         }
 
-        // Dígito é número //
         if (tipo === 'numero') {
             res.innerText += digito;
             ultimoDigito = digito;
             tipoUltimoDigito = 'numero';
         }
 
-        // Dígito é especial //
         if (tipo === 'especial') {
-            // Verifica se o dígito é '.' //
-            if (digito === '.' && statusPonto === true) {
-                if (res.textContent.length === 0 || tipoUltimoDigito === 'especial') { // No início ou após um dígito especial //
-                    res.innerText += `0${digito}`;
-                } else {
-                    res.innerText += digito;
+            if (statusPonto === true) {
+                if (digito === '.' && tipoUltimoDigito !== 'especial') {
+                    if (res.textContent.length === 0 || tipoUltimoDigito === 'especial') {
+                        res.innerText += `0${digito}`;
+                    } else {
+                        res.innerText += digito;
+                    }
+                    statusPonto = false;
+                    ultimoDigito = digito;
+                    tipoUltimoDigito = 'especial';
                 }
-                statusPonto = false;
-                ultimoDigito = digito;
-                tipoUltimoDigito = 'especial';
             }
 
-            // Verifica se o dígito é '+' ou '-' //
             else if (digito === '+' || digito === '-') {
-                if (tipoUltimoDigito === 'especial' && ultimoDigito !== '.') { // Após '+', '-', '×' ou '÷' //
+                if (tipoUltimoDigito === 'especial' && ultimoDigito !== '.') {
                     limpar('ultimo');
                     res.innerText += digito;
-                    if (res.textContent.length === 1) { // No início //
+                    if (res.textContent.length === 1) {
                         vezesOp = 0;
                     } else {
                         vezesOp = 1;
@@ -63,12 +59,12 @@ function mostrar(digito) { // Mostra o dígito selecionado no painel //
                     statusPonto = true;
                     ultimoDigito = digito;
                     tipoUltimoDigito = 'especial';
-                } else if (res.textContent.length === 0 || tipoUltimoDigito === 'numero') { // No início ou após um número //
+                } else if (res.textContent.length === 0 || tipoUltimoDigito === 'numero') {
                     if (vezesOp === 0 && res.textContent.length !== 0) {
                         vezesOp = 1;
                     } else if (vezesOp === 1) {
                         calcular();
-                        res.innerText = `${r}`;
+                        res.innerText = `${resultado}`;
                         op = digito;
                         vezesOp = 1;
                     }
@@ -79,15 +75,14 @@ function mostrar(digito) { // Mostra o dígito selecionado no painel //
                 }
             }
 
-            // Verifica se o dígito é '×' ou '÷' //
             else if (digito === '×' || digito === '÷') {
-                if (res.textContent.length !== 0) { // Não pode está no início //
-                    if (tipoUltimoDigito === 'numero') { // Após um número //
+                if (res.textContent.length !== 0) {
+                    if (tipoUltimoDigito === 'numero') {
                         if (vezesOp === 0) {
                             vezesOp = 1;
                         } else if (vezesOp === 1) {
                             calcular();
-                            res.innerText = `${r}`;
+                            res.innerText = `${resultado}`;
                             op = digito;
                             vezesOp = 1;
                         }
@@ -109,21 +104,21 @@ function mostrar(digito) { // Mostra o dígito selecionado no painel //
     }
 }
 
-function calcular() { // Realiza o cálculo //
+function calcular() {
     const operadores = ['+', '-', '×', '÷'];
-    /*
-     * n1 = primeiro número digitado;
-     * n2 = segundo número digitado;
-     * op = operador;
-     * r = resultado do cálculo;
-     */
+
+    // 1 + 1 = 2 -> n1 op n2 = r //
+    let n1;
+    let n2;
+    let op;
+
     var p = 0; // Verifica se o primeiro dígito é '-'
     if (res.textContent.charAt(0) === '-') {
         p = 1;
     }
 
-    for (let i = 0; i < operadores.length; i++) { // Percorre o array de operadores //
-        for (let j = p; j < res.textContent.length; j++) { // Percorre o texto da div 'res' //
+    for (let i = 0; i < operadores.length; i++) {
+        for (let j = p; j < res.textContent.length; j++) {
             if (res.textContent.charAt(j) === operadores[i]) {
                 n1 = Number(res.textContent.substring(0, j));
                 n2 = Number(res.textContent.substring(j + 1, res.textContent.length));
@@ -134,37 +129,50 @@ function calcular() { // Realiza o cálculo //
 
     switch (op) {
         case '+':
-            r = n1 + n2;
+            resultado = n1 + n2;
             break;
         case '-':
-            r = n1 - n2;
+            resultado = n1 - n2;
             break;
         case '×':
-            r = n1 * n2;
+            resultado = n1 * n2;
             break;
         case '÷':
-            r = n1 / n2;
+            resultado = n1 / n2;
             break;
     }
 
     // Limita o resultado para 4 casas após o ponto ('.') //
-    for (let i = 0; i < r.toString().length; i++) {
-        if (r.toString().charAt(i) === '.') {
-            r = Number(r.toString().substring(0, i + 5));
+    for (let i = 0; i < resultado.toString().length; i++) {
+        if (resultado.toString().charAt(i) === '.') {
+            resultado = Number(resultado.toString().substring(0, i + 5));
         }
     }
 
     vezesOp = 0;
 }
 
-function igual() { // Exibe o resultado (botão de '=') //
+function verResultado() {
     let res = document.getElementById('res');
 
     calcular();
-    res.innerText = `${r}`;
+    res.innerText = `${resultado}`;
+
+    contador = 0;
+    for (let i = 0; i < resultado.toString().length; i++) {
+        if (resultado.toString().charAt(i) === '.') {
+            contador = 1;
+        }
+    }
+
+    if (contador === 0) {
+        statusPonto = true;
+    } else {
+        statusPonto = false;
+    }
 }
 
-function limpar(porcao) { // Apaga dígitos do painel //
+function limpar(porcao) {
     let res = document.getElementById('res');
     const operadores = ['+', '-', '×', '÷'];
 
@@ -181,9 +189,23 @@ function limpar(porcao) { // Apaga dígitos do painel //
     // Apaga o último dígito do painel //
     else {
         if (res.textContent.length !== 0) {
-            // Verifica se o último dígito é um '.' //
             if (ultimoDigito === '.') {
                 statusPonto = true;
+            }
+
+            contador = 0;
+            if (tipoUltimoDigito === 'especial' && ultimoDigito !== '.') {
+                for (let i = 0; i < res.textContent.length; i++) {
+                    if (res.textContent.charAt(i) === '.') {
+                        contador = 1;
+                    }
+                }
+            }
+
+            if (contador === 0) {
+                statusPonto = true;
+            } else {
+                statusPonto = false;
             }
 
             // Atualiza os dígitos do painel //
@@ -191,20 +213,20 @@ function limpar(porcao) { // Apaga dígitos do painel //
 
             // Atualiza as variáveis 'ultimoDigito' e 'tipoUltimoDigito' //
             ultimoDigito = res.textContent.substring((res.textContent.length - 1), res.textContent.length);
-            let c2 = 0;
-            for (let i = 0; i < especiais[i]; i++) {
+            contador = 0;
+            for (let i = 0; i < especiais.length; i++) {
                 if (ultimoDigito === especiais[i]) {
-                    c2 = 1;
+                    contador = 1;
                 }
             }
-            if (c2 === 0) {
+            if (contador === 0) {
                 tipoUltimoDigito = 'numero';
             } else {
                 tipoUltimoDigito = 'especial';
             }
 
             // Atualiza a variável 'vezesOp' //
-            let c3 = 0;
+            contador = 0;
             var p = 0; // Verifica se o primeiro dígito é '-'
             if (res.textContent.charAt(0) === '-') {
                 p = 1;
@@ -212,11 +234,11 @@ function limpar(porcao) { // Apaga dígitos do painel //
             for (let i = 0; i < operadores.length; i++) { // Percorre o array de operadores //
                 for (let j = p; j < res.textContent.length; j++) { // Percorre o texto da div 'res' //
                     if (res.textContent.charAt(j) === operadores[i]) {
-                        c3 = 1;
+                        contador = 1;
                     }
                 }
             }
-            if (c3 === 0) {
+            if (contador === 0) {
                 vezesOp = 0;
             } else {
                 vezesOp = 1;
