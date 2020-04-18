@@ -1,2 +1,3 @@
-# calculadora
- Calculadora desenvolvida com HTML5, CSS3 e JavaScript
+# Calculadora Padrão
+---
+ Calculadora desenvolvida com _**HTML5**_, _**CSS3**_ e _**JavaScript**_
