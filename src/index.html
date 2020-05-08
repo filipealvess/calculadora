@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,102 +10,63 @@
 
 <body>
     <div id="conteudo">
-        <div id="resultado">
-            <div id="res"></div>
-        </div>
+        <div id="resultado"></div>
 
-        <div id="teclas">
-            <table id="tabelaTeclas">
-                <tr>
-                    <!--clear(apaga todo o cálculo)-->
-                    <td class="limpar" onclick="limpar('tudo')">
-                        <div>C</div>
-                    </td>
-                    
-                    <td class="tdVazio"></td>
-                    <td class="tdVazio"></td>
-                    
-                    <!--clear element(apaga o último dígito)-->
-                    <td class="destaque" onclick="limpar('ultimoDigito')">
-                        <div>CE</div>
-                    </td>
-                </tr>
-                <tr>
-                    <!--sete-->
-                    <td onclick="mostrar('7')">
-                        <div>7</div>
-                    </td>
-                    <!--oito-->
-                    <td onclick="mostrar('8')">
-                        <div>8</div>
-                    </td>
-                    <!--nove-->
-                    <td onclick="mostrar('9')">
-                        <div>9</div>
-                    </td>
-                    <!--divisão-->
-                    <td class="destaque" onclick="mostrar('÷')">
-                        <div>&#247;</div>
-                    </td>
-                </tr>
-                <tr>
-                    <!--quatro-->
-                    <td onclick="mostrar('4')">
-                        <div>4</div>
-                    </td>
-                    <!--cinco-->
-                    <td onclick="mostrar('5')">
-                        <div>5</div>
-                    </td>
-                    <!--seis-->
-                    <td onclick="mostrar('6')">
-                        <div>6</div>
-                    </td>
-                    <!--multiplicação-->
-                    <td class="destaque" onclick="mostrar('×')">
-                        <div>&#215;</div>
-                    </td>
-                </tr>
-                <tr>
-                    <!--um-->
-                    <td onclick="mostrar('1')">
-                        <div>1</div>
-                    </td>
-                    <!--dois-->
-                    <td onclick="mostrar('2')">
-                        <div>2</div>
-                    </td>
-                    <!--três-->
-                    <td onclick="mostrar('3')">
-                        <div>3</div>
-                    </td>
-                    <!--subtração-->
-                    <td class="destaque" onclick="mostrar('-')">
-                        <div>&#8722;</div>
-                    </td>
-                </tr>
-                <tr>
-                    <!--ponto-->
-                    <td>
-                        <div id="ponto" onclick="mostrar('.')">.</div>
-                    </td>
-                    <!--zero-->
-                    <td onclick="mostrar(0)">
-                        <div>0</div>
-                    </td>
-                    <!--igualdade-->
-                    <td id="igual" onclick="verResultado()">
-                        <div>&#61;</div>
-                    </td>
-                    <!--adição-->
-                    <td class="destaque" onclick="mostrar('+')">
-                        <div>&#43;</div>
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <table id="tabelaTeclas">
+            <tr>
+                <!-- CLEAR (apaga tudo) -->
+                <td id="c" class="botao">C</td>
+                <!-- CLEAR ELEMENT (apaga o último dígito) -->
+                <td id="ce" class="col4 botao">CE</td>
+            </tr>
+
+            <tr>
+                <!-- SETE -->
+                <td class="botao">7</td>
+                <!-- OITO -->
+                <td class="botao">8</td>
+                <!-- NOVE -->
+                <td class="botao">9</td>
+                <!-- DIVISÃO -->
+                <td class="col4 botao">&#247;</td>
+            </tr>
+
+            <tr>
+                <!-- QUATRO -->
+                <td class="botao">4</td>
+                <!-- CINCO -->
+                <td class="botao">5</td>
+                <!-- SEIS -->
+                <td class="botao">6</td>
+                <!-- MULTIPLICAÇÃO -->
+                <td class="col4 botao">&#215;</td>
+            </tr>
+
+            <tr>
+                <!-- UM -->
+                <td class="botao">1</td>
+                <!-- DOIS -->
+                <td class="botao">2</td>
+                <!-- TRÊS -->
+                <td class="botao">3</td>
+                <!-- SUBTRAÇÃO -->
+                <td class="col4 botao">&#8722;</td>
+            </tr>
+
+            <tr>
+                <!--PONTO -->
+                <td id="ponto" class="botao">.</td>
+                <!-- ZERO -->
+                <td class="botao">0</td>
+                <!--IGUALDADE -->
+                <td id="igual" class="botao">&#61;</td>
+                <!-- ADIÇÃO -->
+                <td class="col4 botao">&#43;</td>
+            </tr>
+        </table>
     </div>
 
     <script src="js/script.js"></script>
 </body>
+
 </html>

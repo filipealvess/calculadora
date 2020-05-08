@@ -1,8 +1,6 @@
-/* DEFINIÇÃO DO CONJUNTO DE CARACTERES E DA FONTE */
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
 
-/* ESTILIZAÇÃO GERAL */
 *{
     margin: 0;
     padding: 0;
@@ -10,13 +8,11 @@
     font-family: 'Orbitron', sans-serif;
 }
 
-/* ESTILIZAÇÃO DO CORPO DA PÁGINA */
 body{
-    background: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .3);
 }
 
-/* ESTILIZAÇÃO DA DIV DE CONTEÚDO (DIV MÃE) */
-div#conteudo{
+#conteudo{
     position: absolute;
 
     width: 380px;
@@ -26,14 +22,13 @@ div#conteudo{
 
     transform: translate(-50%, -50%);
 
-    background: rgba(255, 255, 255, .7);
+    background-color: rgba(255, 255, 255, .7);
 
     border: 1px solid black;
     border-radius: 7px;
 }
 
-/* ESTILIZAÇÃO DA DIV DE RESULTADO (PAINEL DE CÁLCULO) */
-div#res{
+#resultado{
     position: relative;
 
     width: 325px;
@@ -41,7 +36,7 @@ div#res{
     left: 50%;
     line-height: 80px;
 
-    background: white;
+    background-color: white;
 
     margin: 15px 0;
     border: 1px solid #888;
@@ -53,17 +48,12 @@ div#res{
     text-align: right;
     font-size: 24pt;
 }
-div#res:hover{
+
+#resultado:hover{
     border: 1px solid rgb(60, 60, 60);
 }
 
-/* ESTILIZAÇÃO DA DIV DE TECLAS (OPERADORES, PONTO, NÚMEROS, IGUALDADE E CLEAR (C e CE)) */
-div#teclas{
-    position: relative;
-}
-
-/* ESTILIZAÇÃO DA TABELA DE TECLAS */
-table#tabelaTeclas{
+#tabelaTeclas{
     position: relative;
 
     left: 50%;
@@ -73,7 +63,8 @@ table#tabelaTeclas{
     border-collapse: separate;
     border-spacing: 15px;
 }
-td{
+
+.botao{
     width: 70px;
     height: 40px;
 
@@ -83,37 +74,49 @@ td{
     cursor: pointer;
 
     color: rgba(0, 0, 0, .9);
-    background: rgba(0, 0, 0, .2);
+    background-color: rgba(0, 0, 0, .2);
     
     border: 1px solid white;
     border-radius: 7px;
 }
-td:hover{
+
+.botao:hover{
     border: 1px solid rgba(0, 0, 0, .1);
 }
-td#igual{
+
+.col4{
+    background-color: rgba(0, 0, 0, .4);
+}
+
+#igual{
     border: 1px solid white;
 
-    background: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     color: rgb(228, 213, 213);
 }
-td#igual:hover{
+
+#igual:hover{
     border: 1px solid rgba(0, 0, 0, 0.8);
 }
-td.tdVazio{
-    visibility: hidden;
-}
-div#ponto{
+
+#ponto{
     font-size: 18pt;
 }
-.destaque{
-    background: rgba(0, 0, 0, .4);
-}
-.limpar{
-    background: rgba(255, 0, 0, 0.4);
+
+#c{
+    background-color: rgba(255, 0, 0, 0.4);
     
-    border: 1px solid white;
+    border: 1px solid rgba(255, 255, 255, .7);
 }
-.limpar:hover{
+
+#c:hover{
     border: 1px solid rgba(255, 0, 0, 0.1);
+}
+
+#ce{
+    position: absolute;
+    
+    right: 15px;
+
+    line-height: 40px;
 }
