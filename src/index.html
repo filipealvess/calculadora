@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
@@ -15,53 +16,57 @@
         <table id="tabelaTeclas">
             <tr>
                 <!-- CLEAR (apaga tudo) -->
-                <td id="c" class="botao">C</td>
-                <!-- CLEAR ELEMENT (apaga o último dígito) -->
-                <td id="ce" class="col4 botao">CE</td>
+                <td id="c" class="botao" data-nome="clear">C</td>
+
+                <td></td>
+                <td></td>
+
+                <!-- CLEAR ERROR (apaga o último dígito) -->
+                <td id="ce" class="col4 botao"  data-nome="clearError">CE</td>
             </tr>
 
             <tr>
                 <!-- SETE -->
-                <td class="botao">7</td>
+                <td class="botao" data-nome="numero">7</td>
                 <!-- OITO -->
-                <td class="botao">8</td>
+                <td class="botao" data-nome="numero">8</td>
                 <!-- NOVE -->
-                <td class="botao">9</td>
+                <td class="botao" data-nome="numero">9</td>
                 <!-- DIVISÃO -->
-                <td class="col4 botao">&#247;</td>
+                <td class="col4 botao" data-nome="operador">÷</td>
             </tr>
 
             <tr>
                 <!-- QUATRO -->
-                <td class="botao">4</td>
+                <td class="botao" data-nome="numero">4</td>
                 <!-- CINCO -->
-                <td class="botao">5</td>
+                <td class="botao" data-nome="numero">5</td>
                 <!-- SEIS -->
-                <td class="botao">6</td>
+                <td class="botao" data-nome="numero">6</td>
                 <!-- MULTIPLICAÇÃO -->
-                <td class="col4 botao">&#215;</td>
+                <td class="col4 botao" data-nome="operador">×</td>
             </tr>
 
             <tr>
                 <!-- UM -->
-                <td class="botao">1</td>
+                <td class="botao" data-nome="numero">1</td>
                 <!-- DOIS -->
-                <td class="botao">2</td>
+                <td class="botao" data-nome="numero">2</td>
                 <!-- TRÊS -->
-                <td class="botao">3</td>
+                <td class="botao" data-nome="numero">3</td>
                 <!-- SUBTRAÇÃO -->
-                <td class="col4 botao">&#8722;</td>
+                <td class="col4 botao" data-nome="operador">-</td>
             </tr>
 
             <tr>
                 <!--PONTO -->
-                <td id="ponto" class="botao">.</td>
+                <td id="ponto" class="botao" data-nome="ponto">.</td>
                 <!-- ZERO -->
-                <td class="botao">0</td>
+                <td class="botao" data-nome="numero">0</td>
                 <!--IGUALDADE -->
-                <td id="igual" class="botao">&#61;</td>
+                <td id="igual" class="botao" data-nome="igual">&#61;</td>
                 <!-- ADIÇÃO -->
-                <td class="col4 botao">&#43;</td>
+                <td class="col4 botao" data-nome="operador">+</td>
             </tr>
         </table>
     </div>

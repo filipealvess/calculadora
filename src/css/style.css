@@ -15,7 +15,8 @@ body{
 #conteudo{
     position: absolute;
 
-    width: 380px;
+    width: 90%;
+    max-width: 380px;
     height: 420px;
     left: 50%;
     top: 50%;
@@ -31,7 +32,7 @@ body{
 #resultado{
     position: relative;
 
-    width: 325px;
+    width: 87%;
     height: 80px;
     left: 50%;
     line-height: 80px;
@@ -111,12 +112,4 @@ body{
 
 #c:hover{
     border: 1px solid rgba(255, 0, 0, 0.1);
-}
-
-#ce{
-    position: absolute;
-    
-    right: 15px;
-
-    line-height: 40px;
 }
