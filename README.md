@@ -1,3 +1,12 @@
 # Calculadora Padrão
 ---
- Calculadora desenvolvida com _**HTML5**_, _**CSS3**_ e _**JAVASCRIPT**_
+
+ ### O projeto consiste em uma calculadora responsiva de 4 operações
+ 
+ #### Foram utilizadas as tecnologias
+ - HTML
+ - CSS
+ - JavaScript
+ 
+
+![](https://github.com/filipealvess/calculadora/blob/master/src/media/demonstracao-calculadora.gif)
